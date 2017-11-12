@@ -61,7 +61,7 @@
             this.tabsCatalogo.Controls.Add(this.tabIncluir);
             this.tabsCatalogo.Location = new System.Drawing.Point(24, 64);
             this.tabsCatalogo.Name = "tabsCatalogo";
-            this.tabsCatalogo.SelectedIndex = 0;
+            this.tabsCatalogo.SelectedIndex = 1;
             this.tabsCatalogo.Size = new System.Drawing.Size(968, 311);
             this.tabsCatalogo.TabIndex = 0;
             // 
@@ -144,6 +144,7 @@
             this.btnCancelar.Size = new System.Drawing.Size(75, 23);
             this.btnCancelar.TabIndex = 27;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnIncluir
             // 

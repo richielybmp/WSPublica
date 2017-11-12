@@ -64,6 +64,11 @@ namespace wsFormPublica
             }
         }
 
+        private void btnCancelar_Click(object sender, System.EventArgs e)
+        {
+            LimparDados();
+        }
+
         private void LimparDados()
         {
             foreach (var ctrl in this.Controls)
@@ -74,5 +79,6 @@ namespace wsFormPublica
                 }
             }
         }
+
     }
 }
