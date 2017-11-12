@@ -31,13 +31,6 @@
             this.tabsCatalogo = new MetroFramework.Controls.MetroTabControl();
             this.tabConsultar = new MetroFramework.Controls.MetroTabPage();
             this.gridResultado = new System.Windows.Forms.DataGridView();
-            this.Titulo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Autores = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PalavraChave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Data = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Publicação = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Editor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Endereço = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnBuscar = new MetroFramework.Controls.MetroButton();
             this.tbBuscar = new MetroFramework.Controls.MetroTextBox();
             this.lbBuscar = new MetroFramework.Controls.MetroLabel();
@@ -68,7 +61,7 @@
             this.tabsCatalogo.Controls.Add(this.tabIncluir);
             this.tabsCatalogo.Location = new System.Drawing.Point(24, 64);
             this.tabsCatalogo.Name = "tabsCatalogo";
-            this.tabsCatalogo.SelectedIndex = 1;
+            this.tabsCatalogo.SelectedIndex = 0;
             this.tabsCatalogo.Size = new System.Drawing.Size(968, 311);
             this.tabsCatalogo.TabIndex = 0;
             // 
@@ -89,53 +82,10 @@
             // gridResultado
             // 
             this.gridResultado.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.gridResultado.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Titulo,
-            this.Autores,
-            this.PalavraChave,
-            this.Data,
-            this.Publicação,
-            this.Editor,
-            this.Endereço});
             this.gridResultado.Location = new System.Drawing.Point(0, 55);
             this.gridResultado.Name = "gridResultado";
             this.gridResultado.Size = new System.Drawing.Size(962, 224);
             this.gridResultado.TabIndex = 5;
-            // 
-            // Titulo
-            // 
-            this.Titulo.HeaderText = "Título";
-            this.Titulo.Name = "Titulo";
-            // 
-            // Autores
-            // 
-            this.Autores.HeaderText = "Autores";
-            this.Autores.Name = "Autores";
-            // 
-            // PalavraChave
-            // 
-            this.PalavraChave.HeaderText = "Palavra Chave";
-            this.PalavraChave.Name = "PalavraChave";
-            // 
-            // Data
-            // 
-            this.Data.HeaderText = "Data";
-            this.Data.Name = "Data";
-            // 
-            // Publicação
-            // 
-            this.Publicação.HeaderText = "Publicação";
-            this.Publicação.Name = "Publicação";
-            // 
-            // Editor
-            // 
-            this.Editor.HeaderText = "Editor";
-            this.Editor.Name = "Editor";
-            // 
-            // Endereço
-            // 
-            this.Endereço.HeaderText = "Endereço";
-            this.Endereço.Name = "Endereço";
             // 
             // btnBuscar
             // 
@@ -144,6 +94,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(93, 23);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // tbBuscar
             // 
@@ -201,6 +152,7 @@
             this.btnIncluir.Size = new System.Drawing.Size(75, 23);
             this.btnIncluir.TabIndex = 26;
             this.btnIncluir.Text = "Incluir";
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // tbEnderecoEletronico
             // 
@@ -321,13 +273,6 @@
         private MetroFramework.Controls.MetroTabControl tabsCatalogo;
         private MetroFramework.Controls.MetroTabPage tabConsultar;
         private System.Windows.Forms.DataGridView gridResultado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Titulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Autores;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PalavraChave;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Data;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Publicação;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Editor;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Endereço;
         private MetroFramework.Controls.MetroButton btnBuscar;
         private MetroFramework.Controls.MetroTextBox tbBuscar;
         private MetroFramework.Controls.MetroLabel lbBuscar;

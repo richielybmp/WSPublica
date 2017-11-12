@@ -23,7 +23,7 @@ namespace WSPublica
         }
 
         [WebMethod]
-        public DataTable Consultar(string usuario, string consulta, out string mensagem)
+        public DataTable Consultar(string consulta, out string mensagem)
         {
             //if (!AutenticarUsuario(usuario, out mensagem))
             //{
@@ -48,7 +48,7 @@ namespace WSPublica
 
         //Inclui uma publicação
         [WebMethod]
-        public bool IncluirPublicacao(DadosPublicacao dados, string usuario, out string mensagem)
+        public bool IncluirPublicacao(DadosPublicacao dados, out string mensagem)
         {
             //if (!AutenticarUsuario(usuario, out mensagem)) return false;
 
@@ -72,34 +72,33 @@ namespace WSPublica
         }
 
         [WebMethod]
-        public bool Autenticar(string usuario)
+        public bool Autenticar(string usuario, string senha)
         {
-            return AutenticarUsuario(usuario);
+            return AutenticarUsuario(usuario, senha);
         }
 
         //Faz a autenticação do usuário
-        private bool AutenticarUsuario(string usuario)
+        private bool AutenticarUsuario(string usuario, string senha)
         {
             string mensagem = string.Empty;
             string ComandoSql = @"
-                SELECT Nome FROM Usuario 
-                WHERE Email = @Email";
+                SELECT email FROM Usuario 
+                WHERE email = @Email
+                AND senha = @Senha";
 
             Dictionary<string, object> parametros = new Dictionary<string, object>() {
-                { "@Email", usuario }
+                { "@Email", usuario }, { "@Senha", senha}
             };
 
             if (Dados.RetornarTabela(ComandoSql, parametros, out mensagem).Rows.Count == 0)
             {
                 if (string.IsNullOrEmpty(mensagem))
                 {
-                    //mensagem = @"Usuário não encontrado.";
-                    return false;
+                    mensagem = @"Usuário não encontrado.";
                 }
-                return true;
+                return false;
             }
-
-            return false;
+            return true;
         }
 
         private static string AjustarString(string source, int length)

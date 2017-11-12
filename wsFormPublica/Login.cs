@@ -14,7 +14,7 @@ namespace wsFormPublica
         {
             wsPublicacao.WebServiceFrameworkSoapClient client = new wsPublicacao.WebServiceFrameworkSoapClient();
 
-            if (client.Autenticar(tb_usuario.Text))
+            if (client.Autenticar(tb_usuario.Text, tb_senha.Text))
             {
                 this.Hide();
                 Catálogo formPrincipal = new Catálogo();

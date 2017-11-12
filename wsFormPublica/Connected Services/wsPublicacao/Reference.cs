@@ -22,15 +22,15 @@ namespace wsFormPublica.wsPublicacao {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Consultar", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        System.Data.DataTable Consultar(out string mensagem, string usuario, string consulta);
+        System.Data.DataTable Consultar(out string mensagem, string consulta);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IncluirPublicacao", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool IncluirPublicacao(out string mensagem, wsFormPublica.wsPublicacao.DadosPublicacao dados, string usuario);
+        bool IncluirPublicacao(out string mensagem, wsFormPublica.wsPublicacao.DadosPublicacao dados);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Autenticar", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        bool Autenticar(string usuario);
+        bool Autenticar(string usuario, string senha);
     }
     
     /// <remarks/>
@@ -180,16 +180,16 @@ namespace wsFormPublica.wsPublicacao {
             return base.Channel.HelloWorld();
         }
         
-        public System.Data.DataTable Consultar(out string mensagem, string usuario, string consulta) {
-            return base.Channel.Consultar(out mensagem, usuario, consulta);
+        public System.Data.DataTable Consultar(out string mensagem, string consulta) {
+            return base.Channel.Consultar(out mensagem, consulta);
         }
         
-        public bool IncluirPublicacao(out string mensagem, wsFormPublica.wsPublicacao.DadosPublicacao dados, string usuario) {
-            return base.Channel.IncluirPublicacao(out mensagem, dados, usuario);
+        public bool IncluirPublicacao(out string mensagem, wsFormPublica.wsPublicacao.DadosPublicacao dados) {
+            return base.Channel.IncluirPublicacao(out mensagem, dados);
         }
         
-        public bool Autenticar(string usuario) {
-            return base.Channel.Autenticar(usuario);
+        public bool Autenticar(string usuario, string senha) {
+            return base.Channel.Autenticar(usuario, senha);
         }
     }
 }
